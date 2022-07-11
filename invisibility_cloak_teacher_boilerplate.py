@@ -13,7 +13,11 @@ cap = cv2.VideoCapture(0)
 time.sleep(2)
 bg = 0
 
-
+#Capturing background for 60 frames
+for i in range(60):
+    ret, bg = cap.read()
+#Flipping the background
+bg = np.flip(bg, axis=1)
 
 #Reading the captured frame until the camera is open
 while (cap.isOpened()):
